@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <div class="input-area">
+            <div class="input-type">
+                <input type="radio" id="type-text" name="type" value="text" checked>
+                <label for="type-text">Text/URL</label>
+                <input type="radio" id="type-wifi" name="type" value="wifi">
+                <label for="type-wifi">WiFi</label>
+                <input type="radio" id="type-contact" name="type" value="contact">
+                <label for="type-contact">Contact Info</label>
+                <input type="radio" id="type-email" name="type" value="email">
+                <label for="type-email">Email/Phone</label>
+            </div>
+            <div id="input-text-area">
+                <label for="text">Text/URL:</label>
+                <input type="text" id="text" placeholder="Enter text or URL">
+            </div>
+            <div id="input-wifi-area" style="display: none;">
+                <label for="ssid">SSID:</label>
+                <input type="text" id="ssid" placeholder="Enter WiFi SSID">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter WiFi Password">
+            </div>
+            <div id="input-contact-area" style="display: none;">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter Name">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" placeholder="Enter Phone Number">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter Email">
+            </div>
+            <div id="input-email-area" style="display: none;">
+                <label for="email-address">Email Address:</label>
+                <input type="email" id="email-address" placeholder="Enter Email Address">
+                <label for="phone-number">Phone Number:</label>
+                <input type="text" id="phone-number" placeholder="Enter Phone Number">
+            </div>
+            <button id="generate">Generate QR Code</button>
+        </div>
+        <div class="qr-code-area">
+            <div id="qrcode"></div>
+        </div>
+        <div class="options">
+            <h2>Options</h2>
+            <label for="foreground">Foreground Color:</label>
+            <input type="color" id="foreground" value="#000000">
+            <label for="foreground-gradient">Foreground Gradient:</label>
+            <input type="color" id="foreground-gradient" value="#000000">
+            <label for="background">Background Color:</label>
+            <input type="color" id="background" value="#ffffff">
+            <label for="transparent">Transparent Background:</label>
+            <input type="checkbox" id="transparent">
+            <label for="size">Size (px):</label>
+            <input type="number" id="size" value="256">
+            <label for="margin">Margin:</label>
+            <input type="number" id="margin" value="10">
+            <label for="ecc">Error Correction Level:</label>
+            <select id="ecc">
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="Q">Q</option>
+                <option value="H">H</option>
+            </select>
+            <label for="logo">Logo:</label>
+            <div id="logo-drop-area">
+                Drag and drop logo here
+            </div>
+            <input type="file" id="logo" accept="image/*" style="display:none;">
+        </div>
+        <div class="download">
+            <button id="download-png">Download PNG</button>
+            <button id="download-svg">Download SVG</button>
+            <button id="copy-clipboard">Copy to Clipboard</button>
+            <button id="share">Share</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
